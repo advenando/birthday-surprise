@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffe5ef">
+  <title>A Little Surprise for Sayang ♡</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+    :root{--pink:#f6a9c6;--deep:#c85d8c;--pale:#fff1f6;--cream:#fffafc;--ink:#78445b;--muted:#a9798e;--line:#f4d3e0;--shadow:0 18px 50px #b65b8020}
+    *{box-sizing:border-box} body{margin:0;font-family:"DM Sans",sans-serif;color:var(--ink);background:radial-gradient(circle at 10% 10%,#fff 0 2px,transparent 3px),linear-gradient(135deg,#fff8fb,#ffe8f1 55%,#fff5f8);background-size:28px 28px,auto;min-height:100vh;overflow-x:hidden}
+    button{font:inherit;cursor:pointer} .hidden{display:none!important}
+    .decor{position:fixed;z-index:0;pointer-events:none;opacity:.5;font-size:clamp(20px,4vw,42px);animation:float 6s ease-in-out infinite}.d1{top:8%;left:4%}.d2{top:18%;right:5%;animation-delay:1s}.d3{bottom:8%;left:7%;animation-delay:2s}.d4{bottom:12%;right:7%;animation-delay:3s}
+    @keyframes float{50%{transform:translateY(-15px) rotate(8deg)}} @keyframes pop{from{opacity:0;transform:translateY(15px) scale(.97)}to{opacity:1;transform:none}}
+    .wrap{position:relative;z-index:1;width:min(920px,92%);margin:auto;padding:30px 0 55px}
+    header{text-align:center;margin:10px 0 24px}.eyebrow{letter-spacing:.18em;text-transform:uppercase;color:var(--deep);font-size:.72rem;font-weight:700}
+    h1,h2,h3{font-family:"Playfair Display",serif} h1{font-size:clamp(2.4rem,7vw,4.7rem);line-height:1.05;margin:12px 0;color:#bd5c87} h2{font-size:clamp(1.8rem,5vw,2.7rem);margin:0 0 12px;color:#bd5c87}
+    .subtitle{color:var(--muted);line-height:1.7;max-width:580px;margin:0 auto}
+    .ribbon{display:inline-block;background:#f7b7cf;color:#fff;padding:8px 18px;border-radius:30px;box-shadow:0 5px 0 #e99ab9;font-size:.83rem;font-weight:700}
+    .panel{background:#ffffffd9;border:1px solid #fff;border-radius:28px;box-shadow:var(--shadow);padding:clamp(20px,5vw,38px);backdrop-filter:blur(8px);animation:pop .5s ease both}
+    .center{text-align:center}.primary,.secondary{border:0;border-radius:999px;padding:13px 23px;font-weight:700;transition:.2s}
+    .primary{background:linear-gradient(135deg,#ed8fb4,#d96d9a);color:white;box-shadow:0 7px 0 #c65f89,0 12px 22px #d96d9a35}.primary:hover{transform:translateY(-2px)}.primary:active{transform:translateY(3px);box-shadow:0 3px 0 #c65f89}
+    .secondary{background:#fff0f6;color:var(--deep);border:1px solid var(--line)}
+    .tiny{font-size:.82rem;color:var(--muted);line-height:1.6}.bow{font-size:2.3rem;margin-bottom:5px}
+    .game-top{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:18px}.pill{background:#fff0f6;border:1px solid var(--line);padding:8px 13px;border-radius:99px;font-size:.9rem;font-weight:700;color:var(--deep)}
+    .progress{height:9px;background:#fde5ef;border-radius:99px;overflow:hidden;margin:0 0 22px}.bar{height:100%;width:0;background:linear-gradient(90deg,#f4a6c4,#d96d9a);transition:width .25s}
+
+    /* ===== KARTU BARU (tanpa 3D flip) ===== */
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:560px;margin:0 auto}
+    .card{
+      display:flex;align-items:center;justify-content:center;
+      width:100%;aspect-ratio:1;padding:0;
+      border:2px solid #f2a7c3;border-radius:19px;
+      background:#f6a9c6;               /* warna solid, pasti terlihat */
+      color:#ffffff;
+      font-size:clamp(1.6rem,6vw,2.7rem);line-height:1;
+      box-shadow:0 5px 0 #e08aae;
+      transition:transform .15s, box-shadow .15s, background .2s;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .card:hover{transform:translateY(-2px)}
+    .card:active{transform:translateY(3px);box-shadow:0 2px 0 #e08aae}
+    .card.flipped,.card.matched{background:#fff8fb;color:#000;border-color:#f5c8da;box-shadow:0 5px 12px #b65b8020;animation:reveal .3s ease}
+    .card.matched{background:#ffe6f0;border-color:#e58bad;cursor:default}
+    @keyframes reveal{from{transform:scale(.8) rotate(-6deg)}to{transform:none}}
+
+    .message{min-height:25px;margin:16px 0;color:var(--deep);font-weight:600}
+    .section{margin-top:24px}.photo-frame{background:#fff;padding:12px 12px 42px;box-shadow:0 8px 24px #8e4a651c;transform:rotate(-2deg);max-width:330px;margin:18px auto 22px;border-radius:5px}
+    .photo-frame img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:#ffe8f1;border-radius:3px}.photo-caption{text-align:center;font-family:"Playfair Display",serif;color:#bd5c87;margin-top:10px}
+    .placeholder{display:grid;place-items:center;text-align:center;padding:20px;color:#b96a8c;line-height:1.5}
+    .letter{background:linear-gradient(#fffafc,#fff5f8);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,5vw,32px);text-align:left;line-height:1.9;white-space:pre-line}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.gallery figure{margin:0;background:#fff;padding:7px 7px 23px;box-shadow:0 5px 18px #8e4a6515;transform:rotate(var(--r,1deg))}.gallery img{width:100%;aspect-ratio:1;object-fit:cover;background:#ffe8f1;display:block}.gallery figcaption{text-align:center;font-size:.78rem;color:var(--muted);padding-top:8px}
+    .music-box{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;background:#fff1f6;border:1px solid var(--line);border-radius:18px;padding:16px;margin-top:18px}
+    footer{text-align:center;color:#bd7c98;font-size:.8rem;margin-top:30px}
+    .confetti{position:fixed;top:-20px;width:10px;height:14px;z-index:5;pointer-events:none;animation:fall linear forwards;border-radius:2px}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.85}}
+    @media(max-width:520px){.grid{gap:8px}.card{border-radius:14px}.gallery{grid-template-columns:repeat(2,1fr)}.wrap{padding-top:18px}.panel{border-radius:22px}}
+  </style>
+</head>
+<body>
+  <div class="decor d1">🎀</div><div class="decor d2">♡</div><div class="decor d3">🌷</div><div class="decor d4">💗</div>
+  <main class="wrap">
+    <header><div class="eyebrow">a tiny website made with love</div><h1>For You, Sayang ♡</h1><p class="subtitle">Ada sesuatu yang kecil, manis, dan spesial buat kamu. Selesaikan permainan kecil ini untuk membuka kejutanmu!</p></header>
+
+    <section id="welcome" class="panel center">
+      <div class="bow">🎀</div><span class="ribbon">A LITTLE BIRTHDAY SURPRISE</span>
+      <h2 style="margin-top:18px">Hello, Birthday Princess!</h2>
+      <p class="subtitle">Hari ini adalah hari istimewa seseorang yang sangat berarti. Sebelum melihat hadiahnya, mau main game sebentar?</p>
+      <div style="font-size:2rem;margin:20px">💗 🌸 💌 🌷 💗</div>
+      <button class="primary" id="startBtn">Open my little game ♡</button>
+      <p class="tiny" style="margin-top:18px">Psst... ada kejutan menunggumu di akhir permainan.</p>
+    </section>
+
+    <section id="game" class="panel hidden">
+      <div class="center"><span class="ribbon">LEVEL 01 · THE HEART GAME</span><h2 style="margin-top:17px">Find the Matching Hearts</h2><p class="subtitle">Temukan semua pasangan kartu yang sama. Ada 8 pasangan yang harus kamu temukan!</p></div>
+      <div class="game-top" style="margin-top:22px"><span class="pill">♡ Matches: <b id="matches">0</b>/8</span><span class="pill">Moves: <b id="moves">0</b></span><button class="secondary" id="restartBtn">↻ Restart</button></div>
+      <div class="progress"><div class="bar" id="progress"></div></div>
+      <div class="grid" id="grid" aria-label="Memory matching game"></div>
+      <p class="message center" id="gameMessage" aria-live="polite">Pilih dua kartu untuk menemukan pasangannya 💕</p>
+      <div class="center"><button class="primary hidden" id="claimBtn">Claim your surprise! 🎁</button></div>
+    </section>
+
+    <section id="surprise" class="panel hidden">
+      <div class="center"><div class="bow">🎉🎀💗</div><span class="ribbon">YOU UNLOCKED YOUR SURPRISE</span><h2 style="margin-top:18px">Happy Birthday, Sayang!</h2><p class="subtitle">Kamu berhasil! Sekarang waktunya membuka hadiah kecil dariku.</p></div>
+      <div class="section center">
+        <div class="photo-frame"><img id="mainPhoto" src="assets/foto-utama.jpg" alt="Foto Sayang" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><div class="placeholder" style="display:none;aspect-ratio:4/5">📷<br>Letakkan foto utama kamu di<br><b>assets/foto-utama.jpg</b></div><div class="photo-caption">My favorite person ♡</div></div>
+      </div>
+      <div class="music-box"><span style="font-size:1.8rem">🎂</span><div><b>Birthday song for you</b><div class="tiny">Putar lagu spesialmu di sini ♡</div></div><button class="primary" id="musicBtn">▶ Play Music</button></div>
+      <audio id="birthdayAudio" src="assets/happy-birthday.mp3" preload="none"></audio>
+      <div class="section"><h2 class="center">A Letter For You 💌</h2><div class="letter" id="letterText">Untuk Sayang,
+
+Happy birthday, my love! ♡
+
+Semoga di usia yang baru ini, kamu selalu dikelilingi hal-hal baik, diberi banyak alasan untuk tersenyum, dan semua impianmu satu per satu bisa terwujud.
+
+Terima kasih sudah hadir dan membuat hari-hariku jadi lebih berwarna. Aku mungkin nggak selalu bisa memberikan hal yang sempurna, tapi aku akan selalu berusaha membuatmu merasa dicintai dan dihargai.
+
+Jangan lupa bahagia, ya. Kamu pantas mendapatkan semua hal indah di dunia ini.
+
+With all my love,
+Your favorite person ♡</div></div>
+      <div class="section"><h2 class="center">Our Little Memories 📸</h2><p class="subtitle center">Beberapa potongan kenangan yang ingin kusimpan selamanya.</p>
+        <div class="gallery">
+          <figure style="--r:-2deg"><img src="assets/kenangan-1.jpg" alt="Kenangan 1" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><div class="placeholder" style="display:none;aspect-ratio:1">📷<br>kenangan-1.jpg</div><figcaption>Our moment ♡</figcaption></figure>
+          <figure style="--r:2deg"><img src="assets/kenangan-2.jpg" alt="Kenangan 2" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><div class="placeholder" style="display:none;aspect-ratio:1">📷<br>kenangan-2.jpg</div><figcaption>Sweet days 🌷</figcaption></figure>
+          <figure style="--r:-1deg"><img src="assets/kenangan-3.jpg" alt="Kenangan 3" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><div class="placeholder" style="display:none;aspect-ratio:1">📷<br>kenangan-3.jpg</div><figcaption>Just us 💗</figcaption></figure>
+        </div>
+      </div>
+      <div class="center" style="margin-top:30px"><h2>I love you, Sayang! ♡</h2><p class="subtitle">Semoga hari ini dan hari-hari setelahnya selalu punya banyak cerita indah untuk kamu.</p><div style="font-size:2rem;margin-top:12px">💗 🎀 🌷 💗</div></div>
+    </section>
+    <footer>made with ♡, just for Sayang · always your biggest fan</footer>
+  </main>
+  <script>
+    const symbols = ["💗","🎀","🌷","🧸","💌","🐰","🍓","✨"];
+    const BACK = "♡";
+    const $ = id => document.getElementById(id);
+    let deck=[], first=null, lock=false, matches=0, moves=0;
+
+    function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+    function show(id){["welcome","game","surprise"].forEach(x=>$(x).classList.toggle("hidden",x!==id));window.scrollTo({top:0,behavior:"smooth"})}
+
+    function buildGame(){
+      deck=shuffle([...symbols,...symbols]);first=null;lock=false;matches=0;moves=0;
+      $("matches").textContent=0;$("moves").textContent=0;$("progress").style.width="0%";
+      $("claimBtn").classList.add("hidden");
+      $("gameMessage").textContent="Pilih dua kartu untuk menemukan pasangannya 💕";
+      $("grid").innerHTML="";
+      deck.forEach((symbol,index)=>{
+        const btn=document.createElement("button");
+        btn.type="button";btn.className="card";btn.textContent=BACK;
+        btn.setAttribute("aria-label","Kartu tertutup");
+        btn.addEventListener("click",()=>flip(btn,index));
+        $("grid").appendChild(btn);
+      });
+    }
+
+    function open(btn,index){btn.classList.add("flipped");btn.textContent=deck[index];btn.setAttribute("aria-label","Kartu "+deck[index])}
+    function close(btn){btn.classList.remove("flipped");btn.textContent=BACK;btn.setAttribute("aria-label","Kartu tertutup")}
+
+    function flip(btn,index){
+      if(lock||btn.classList.contains("flipped")||btn.classList.contains("matched"))return;
+      open(btn,index);
+      if(!first){first={btn,index};return}
+      moves++;$("moves").textContent=moves;
+      const second={btn,index};
+      if(deck[first.index]===deck[second.index]){
+        first.btn.classList.add("matched");second.btn.classList.add("matched");
+        matches++;$("matches").textContent=matches;$("progress").style.width=(matches/8*100)+"%";
+        first=null;
+        if(matches===8){$("gameMessage").textContent="Yay! Semua pasangan ditemukan. Kamu hebat, Sayang! 💗";$("claimBtn").classList.remove("hidden")}
+        else $("gameMessage").textContent="Yeay, ketemu pasangan yang cocok! 💕";
+      }else{
+        lock=true;$("gameMessage").textContent="Belum cocok, coba lagi yaa 🌷";
+        const a=first.btn,b=second.btn;
+        setTimeout(()=>{close(a);close(b);first=null;lock=false},850);
+      }
+    }
+
+    function confetti(){
+      const colors=["#f48fb5","#ffd166","#c9a0dc","#ffb3c6","#ffffff","#e9a6c7"];
+      for(let i=0;i<95;i++){const el=document.createElement("i");el.className="confetti";el.style.left=Math.random()*100+"vw";el.style.background=colors[Math.floor(Math.random()*colors.length)];el.style.animationDuration=(3+Math.random()*4)+"s";el.style.animationDelay=Math.random()*1.5+"s";el.style.transform=`rotate(${Math.random()*180}deg)`;document.body.appendChild(el);setTimeout(()=>el.remove(),8000)}
+    }
+
+    $("startBtn").addEventListener("click",()=>{buildGame();show("game")});
+    $("restartBtn").addEventListener("click",buildGame);
+    $("claimBtn").addEventListener("click",()=>{show("surprise");confetti()});
+    $("musicBtn").addEventListener("click",async()=>{
+      const audio=$("birthdayAudio");
+      if(audio.paused){try{await audio.play();$("musicBtn").textContent="Ⅱ Pause Music"}catch(e){alert("Belum ada file musik. Tambahkan lagu bernama happy-birthday.mp3 ke folder assets, lalu coba lagi.")}}
+      else{audio.pause();$("musicBtn").textContent="▶ Play Music"}
+    });
+  </script>
+</body>
+</html>
